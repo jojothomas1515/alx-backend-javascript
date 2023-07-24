@@ -5,6 +5,7 @@ import getBudgetForCurrentYear from '../8-getBudgetCurrentYear';
 import getFullBudgetObject from '../9-getFullBudget';
 import appendToEachArrayValue from '../10-loops';
 import createEmployeesObject from '../11-createEmployeesObject';
+import createReportObject from '../12-createReportObject';
 
 test('getSanFranciscoDescription', () => {
   const newLocal = 'As of 2017, it was the seventh-highest income county in the' +
@@ -37,3 +38,13 @@ test("Function to Create Employee Object", () => {
   expect(createEmployeesObject("Software", ["Bob", "Sylvie"]))
     .toStrictEqual({ Software: ['Bob', 'Sylvie'] });
 });
+
+test("createReportObject", () => {
+  const employees = {
+    ...createEmployeesObject('engineering', ['Bob', 'Jane']),
+    ...createEmployeesObject('marketing', ['Sylvie'])
+  };
+  const report = createReportObject(employees);
+  expect(report.allEmployees).toStrictEqual({ engineering: ['Bob', 'Jane'], marketing: ['Sylvie'] });
+  expect(report.getNumberOfDepartments(report.allEmployees)).toBe(2);
+})
