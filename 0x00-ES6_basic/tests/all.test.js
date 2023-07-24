@@ -2,6 +2,8 @@
 import getSanFranciscoDescription from '../6-string-interpolation';
 import getBudgetObject from '../7-getBudgetObject';
 import getBudgetForCurrentYear from '../8-getBudgetCurrentYear';
+import getFullBudgetObject from '../9-getFullBudget';
+import appendToEachArrayValue from '../10-loops';
 
 test('getSanFranciscoDescription', () => {
   const newLocal = 'As of 2017, it was the seventh-highest income county in the' +
@@ -17,4 +19,15 @@ test('get budget object test', () => {
 test("Es6 computed property", () => {
   expect(getBudgetForCurrentYear(2100, 5200, 1090))
     .toStrictEqual({ 'income-2023': 2100, 'gdp-2023': 5200, 'capita-2023': 1090 });
+});
+test("Es6 method  properties", () => {
+  const fullBudget = getFullBudgetObject(20, 50, 10);
+  expect(fullBudget.getIncomeInDollars(fullBudget.income))
+    .toBe("$20");
+  expect(fullBudget.getIncomeInEuros(fullBudget.income))
+    .toBe("20 euros");
+});
+test("Es6 for of", () => {
+  expect(appendToEachArrayValue(['appended', 'fixed', 'displayed'], 'correctly-'))
+    .toStrictEqual(['correctly-appended', 'correctly-fixed', 'correctly-displayed']);
 });
