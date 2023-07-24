@@ -4,6 +4,7 @@ import getBudgetObject from '../7-getBudgetObject';
 import getBudgetForCurrentYear from '../8-getBudgetCurrentYear';
 import getFullBudgetObject from '../9-getFullBudget';
 import appendToEachArrayValue from '../10-loops';
+import createEmployeesObject from '../11-createEmployeesObject';
 
 test('getSanFranciscoDescription', () => {
   const newLocal = 'As of 2017, it was the seventh-highest income county in the' +
@@ -30,4 +31,9 @@ test("Es6 method  properties", () => {
 test("Es6 for of", () => {
   expect(appendToEachArrayValue(['appended', 'fixed', 'displayed'], 'correctly-'))
     .toStrictEqual(['correctly-appended', 'correctly-fixed', 'correctly-displayed']);
+});
+
+test("Function to Create Employee Object", () => {
+  expect(createEmployeesObject("Software", ["Bob", "Sylvie"]))
+    .toStrictEqual({ Software: ['Bob', 'Sylvie'] });
 });
