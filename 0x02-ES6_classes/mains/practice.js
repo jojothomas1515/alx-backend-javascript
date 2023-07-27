@@ -16,7 +16,13 @@ class Up extends Down {
   sayHello() {
     console.log('way up we go');
   }
+
+  toString() {
+    const k = super.toString();
+    return k[1] = 'jojo';
+  }
 }
 
 const ex = new Up();
+console.log(ex.toString());
 
