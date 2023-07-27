@@ -16,6 +16,6 @@ export default class Building {
   }
 
   evacuationWarningMessage() {
-    console.log(`Please Evacuate this ${this.sqft} sqaure foot`);
+    return `Please Evacuate this ${this.sqft} sqaure foot`;
   }
 }
