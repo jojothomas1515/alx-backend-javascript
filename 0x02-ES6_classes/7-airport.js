@@ -13,7 +13,7 @@ export default class Airport {
   }
 
   get code() {
-    return this._name;
+    return this._code;
   }
 
   set code(code) {
