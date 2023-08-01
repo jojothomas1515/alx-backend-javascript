@@ -3,7 +3,8 @@ export default function cleanSet(set, word = '') {
     const li = [];
     set.forEach((w) => {
       if (w.startsWith(word)) {
-        li.push(w.slice(word.length));
+        const res = w.slice(word.length);
+        if (res !== '') { li.push(res); }
       }
     });
 
