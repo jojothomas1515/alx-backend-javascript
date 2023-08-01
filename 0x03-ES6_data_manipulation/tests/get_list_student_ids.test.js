@@ -10,4 +10,7 @@ test('testing the id array from student list', () => {
 test('testing the id array from student list', () => {
   expect(getListStudentIds()).toStrictEqual([]);
 });
+test('testing the id array from student list with a string', () => {
+  expect(getListStudentIds("hello")).toStrictEqual([]);
+});
 
