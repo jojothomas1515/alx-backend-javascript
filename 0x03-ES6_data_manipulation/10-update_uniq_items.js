@@ -1,14 +1,11 @@
 export default function updateUniqueItems(map) {
   if (map instanceof Map) {
-    const nm = new Map();
-    map.forEach((k, v) => {
+    for (const [k, v] of map.entries()) {
       if (v === 1) {
-        nm.set(k, 100);
-      } else {
-        nm.set(k, v);
+        map.set(k, 100);
       }
-    });
-    return nm;
+    }
+  } else {
+    throw Error('Cannot process');
   }
-  throw Error('Cannot process');
 }
