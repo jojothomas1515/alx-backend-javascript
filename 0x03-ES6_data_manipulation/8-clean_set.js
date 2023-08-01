@@ -1,14 +1,8 @@
 export default function cleanSet(set, word = '') {
   if (set instanceof Set && word !== '') {
-    const li = [];
-    set.forEach((w) => {
-      if (w.startsWith(word)) {
-        const res = w.slice(word.length);
-        if (res !== '') { li.push(res); }
-      }
-    });
-
-    return li.join('-');
+    return Array.from(set).filter((w) => w.startsWith(word) && (w.slice(word.length) !== ''))
+      .map((w) => w.substring(word.length))
+      .join('-');
   }
   return '';
 }
