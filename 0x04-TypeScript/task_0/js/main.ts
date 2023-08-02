@@ -16,6 +16,13 @@ const s2: Student = {
 const studentList: Student[] = [s1, s2];
 
 const table = document.createElement('table') as HTMLTableElement;
+const row = document.createElement('tr') as HTMLTableRowElement;
+const fn = document.createElement('th') as HTMLTableCellElement;
+const lc = document.createElement('th') as HTMLTableCellElement;
+fn.textContent = 'FirstName';
+lc.textContent = 'Location';
+row.append(fn, lc);
+table.appendChild(row);
 
 studentList.forEach((student) => {
   const row = document.createElement('tr') as HTMLTableRowElement;
