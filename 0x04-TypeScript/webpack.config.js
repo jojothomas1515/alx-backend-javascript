@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
-  entry: "./task_0/js/main.ts",
+  entry: "./task_3/js/main.ts",
   devtool: "inline-source-map",
   module: {
     rules: [
@@ -13,8 +13,8 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         options: {
-          transpileOnly: true
-        }
+          transpileOnly: true,
+        },
       }
     ]
   },
@@ -22,7 +22,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"]
   },
   devServer: {
-    contentBase: "./task_0/dist"
+    contentBase: "./task_3/dist"
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
@@ -33,6 +33,6 @@ module.exports = {
   ],
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "tast_0/dist")
+    path: path.resolve(__dirname, "tast_1/dist")
   }
 };
