@@ -7,7 +7,7 @@ async function countStudents(fileName) {
     const dept = new Map();
     let count = 0;
     const data = readFileSync(fileName, 'utf8');
-    const lines = data.split('\n');
+    const lines = data.trim().split('\n');
     const students = lines.slice(1);
     students.forEach((student) => {
       if (student !== '') {
