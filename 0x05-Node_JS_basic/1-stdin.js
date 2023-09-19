@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 
-console.log("Welcome to Holberton School, what is your name?");
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-jj = process.stdin.read(100);
-console.log(jj);
+const question = 'Welcome to Holberton School, what is your name?\n';
+readline.question(question, (answer) => {
+  console.log(`Your name is: ${answer}`);
+  readline.close();
+  console.log('This important software is now closing');
+});
