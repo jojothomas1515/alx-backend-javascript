@@ -10,11 +10,11 @@ console.log(question);
 
 readline.on('line', (input) => {
   console.log(`Your name is: ${input}`);
+  process.exit();
 });
 
 readline.on('SIGINT', () => {
   console.log('his important software is now closing');
-  process.exit();
 });
 readline.on('close', () => {
   console.log('This important software is now closing');
