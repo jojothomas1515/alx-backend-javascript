@@ -30,7 +30,7 @@ function countStudents(fileName) {
     });
     console.log(`Number of students: ${count}`);
     dept.forEach((v, k) => {
-      console.log(`Number of students in ${k}: ${v.length}. List: ${v.join(' ')}`);
+      console.log(`Number of students in ${k}: ${v.length}. List: ${v.join(', ')}`);
     });
   } catch (err) {
     throw Error('Cannot load the database');
