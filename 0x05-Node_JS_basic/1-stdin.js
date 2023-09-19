@@ -7,16 +7,15 @@ const readline = require('readline').createInterface({
 const question = 'Welcome to Holberton School, what is your name?';
 
 console.log(question);
-
-readline.on('line', (input) => {
-  console.log(`Your name is: ${input}`);
-  process.exit();
-});
-
-readline.on('SIGINT', () => {
-  console.log('his important software is now closing');
-});
-readline.on('close', () => {
-  console.log('This important software is now closing');
-  process.exit();
-});
+if (process.stdin.isTTY) {
+  readline.on('line', (input) => {
+    console.log(`Your name is: ${input}`);
+    process.exit();
+  });
+}
+if (!process.stdin.isTTY) {
+  readline.on('line', (input) => {
+    console.log(`Your name is: ${input}`);
+    console.log('This important software is now closing');
+  });
+}
