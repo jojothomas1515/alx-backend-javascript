@@ -11,15 +11,20 @@ function countStudents(fileName) {
     const students = lines.slice(1);
     students.forEach((student) => {
       if (student !== '') {
-        count += 1;
         const sp = student.split(',');
         const fn = sp[0];
+        const ln = sp[1];
+        const age = sp[2];
         const field = sp[3];
-        if (!dept.has(field)) {
-          dept.set(field, [fn]);
-        } else {
-          const li = dept.get(field);
-          li.push(fn);
+        if (fn && ln && age && field) {
+          count += 1;
+
+          if (!dept.has(field)) {
+            dept.set(field, [fn]);
+          } else {
+            const li = dept.get(field);
+            li.push(fn);
+          }
         }
       }
     });
