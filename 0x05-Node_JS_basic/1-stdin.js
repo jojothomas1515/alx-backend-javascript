@@ -1,30 +1,21 @@
-const readline = require('readline');
-
-// create the process im and out interface
-
-const rl = readline.createInterface({
+#!/usr/bin/env node
+const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-console.log('Welcome to Holberton School, what is your name?');
+const question = 'Welcome to Holberton School, what is your name?';
 
+console.log(question);
 if (process.stdin.isTTY) {
-  rl.on('line', (ans) => {
-    console.log(`Your name is: ${ans}`);
+  readline.on('line', (input) => {
+    console.log(`Your name is: ${input}`);
     process.exit();
   });
 }
-
-rl.on('line', (ans) => {
-  console.log(`Your name is: ${ans}`);
-});
-
-rl.on('close', () => {
-  console.log('This important software is now closing');
-});
-
-rl.on('SIGINT', () => {
-  console.log('This important software is now closing');
-  process.exit();
-});
+if (!process.stdin.isTTY) {
+  readline.on('line', (input) => {
+    console.log(`Your name is: ${input}`);
+    console.log('This important software is now closing');
+  });
+}
