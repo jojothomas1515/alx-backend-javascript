@@ -3,7 +3,7 @@
 const { readFileSync } = require('fs');
 
 function countStudents(fileName) {
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     try {
       const dept = new Map();
       let count = 0;
