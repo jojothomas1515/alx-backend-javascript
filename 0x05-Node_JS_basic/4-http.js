@@ -3,11 +3,9 @@
 const http = require('http');
 
 const app = http.createServer((req, res) => {
-  if (req.url === '/') {
-    res.setHeader('Content-Type', 'text/html');
-    res.write('Hello Holberton School!');
-    res.end();
-  }
+  res.setHeader('Content-Type', 'text/html');
+  res.write('Hello Holberton School!');
+  res.end();
 });
 
 const port = process.env.PORT || 5000;
