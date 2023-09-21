@@ -7,7 +7,8 @@ async function countStudents(fileName) {
   try {
     const dept = new Map();
     let count = 0;
-    const data = await promisify(readFile(fileName, 'utf8'));
+    const rf = promisify(readFile);
+    const data = await rf(fileName, 'utf8');
     const lines = data.trim().split('\n');
     const students = lines.slice(1);
     students.forEach((student) => {
