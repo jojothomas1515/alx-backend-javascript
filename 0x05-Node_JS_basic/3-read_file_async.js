@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
-const { readFile } = require('fs/promises');
+const { readFile } = require('fs');
+const { promisify } = require('util');
 
 async function countStudents(fileName) {
   try {
     const dept = new Map();
     let count = 0;
-    const data = await readFile(fileName, 'utf8');
+    const data = await promisify(readFile(fileName, 'utf8'));
     const lines = data.trim().split('\n');
     const students = lines.slice(1);
     students.forEach((student) => {
