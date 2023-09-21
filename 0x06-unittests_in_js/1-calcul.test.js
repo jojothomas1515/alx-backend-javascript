@@ -6,7 +6,7 @@ describe('test suite for calculate number function', () => {
     assert.equal(calculateNumber('DIVIDE', 10.3, 5.2), 2);
   });
   it('add two floating point numbers', () => {
-    assert.equal(calculateNumber('ADD', 10.3, 5.2), 15);
+    assert.equal(calculateNumber('SUM', 10.3, 5.2), 15);
   });
   it('subtract two floating point numbers', () => {
     assert.equal(calculateNumber('SUBTRACT', 10.3, 5.2), 5);

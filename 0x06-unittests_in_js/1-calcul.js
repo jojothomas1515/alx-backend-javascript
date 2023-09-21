@@ -1,6 +1,6 @@
 const Type = {
   SUBTRACT: 'SUBTRACT',
-  ADD: 'ADD',
+  SUM: 'SUM',
   DIVIDE: 'DIVIDE',
 };
 /**
@@ -11,7 +11,7 @@ const Type = {
  * @returns {Number} The sum of a and b
  */
 function calculateNumber(type, a, b) {
-  if (type === Type.ADD) return Math.round(a) + Math.round(b);
+  if (type === Type.SUM) return Math.round(a) + Math.round(b);
   if (type === Type.SUBTRACT) return Math.round(a) - Math.round(b);
   if (type === Type.DIVIDE) {
     const aa = Math.round(a);
