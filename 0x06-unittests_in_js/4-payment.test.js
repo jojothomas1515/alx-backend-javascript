@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const sendPaymentRequestToApi = require('./3-payment');
+const sendPaymentRequestToApi = require('./4-payment');
 const Util = require('./utils');
 const sinon = require('sinon');
 
