@@ -1,0 +1,12 @@
+{
+  "plugins": ["jest"],
+  "env": {
+    "node": true,
+    "es6": true,
+    "commonjs": true
+  },
+  "rules": {
+    "jest/prefer-expect-assertions": "off",
+    "jest/expect-expect": "off"
+  }
+}

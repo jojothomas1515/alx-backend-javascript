@@ -16,7 +16,7 @@ function calculateNumber(type, a, b) {
   if (type === Type.DIVIDE) {
     const aa = Math.round(a);
     const bb = Math.round(b);
-    if (b === 0) return 'Error';
+    if (bb === 0) return 'error';
     return aa / bb;
   }
 }
