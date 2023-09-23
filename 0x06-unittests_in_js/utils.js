@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 const Utils = {
   calculateNumber: function (type, a, b) {
     switch (type) {
