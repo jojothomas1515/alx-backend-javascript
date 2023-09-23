@@ -1,0 +1,4 @@
+
+GET localhost:7865 HTTP/1
+
+Content-Type: application/xhtml+xml
