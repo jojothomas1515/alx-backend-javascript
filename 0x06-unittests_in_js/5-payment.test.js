@@ -1,6 +1,6 @@
 /* eslint-disable */
 const { expect } = require('chai');
-const sendPaymentRequestToApi = require('./4-payment');
+const sendPaymentRequestToApi = require('./5-payment');
 const Util = require('./utils');
 const sinon = require('sinon');
 
