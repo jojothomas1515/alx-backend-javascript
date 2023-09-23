@@ -4,17 +4,24 @@ const sendPaymentRequestToApi = require('./4-payment');
 const Util = require('./utils');
 const sinon = require('sinon');
 
-describe('using sinon spy', () => {
+describe('using sinon hooks', () => {
   // const spy = sinon.spy(sendPaymentRequestToApi);
   // eslint-disable-next-line no-unused-vars
   const calMethod = sinon.stub(Util, 'calculateNumber').callsFake((a, b) => 10);
-  const log = sinon.spy(console, 'log');
-  sendPaymentRequestToApi(22, 88);
-
+  let log;
+  beforeEach(() => {
+    log = sinon.spy(console, 'log');
+  });
+  afterEach(() => {
+    log.restore();
+  });
   it('check wether calculateNumber method was called', () => {
-    expect(log.calledWithExactly('The total is: 10'));
+    sendPaymentRequestToApi(100, 20);
+    expect(log.calledWithExactly('The total is: 120'));
   });
   it('check wether calculateNumber method was called once', () => {
-    console.log(calMethod.calledOnce);
+    sendPaymentRequestToApi(10, 10);
+    expect(log.calledOnce).equal(true);
+    expect(log.calledWithExactly('The total is: 20'));
   });
 });
