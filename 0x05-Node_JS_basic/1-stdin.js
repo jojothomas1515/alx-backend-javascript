@@ -15,7 +15,7 @@ if (process.stdin.isTTY) {
 }
 if (!process.stdin.isTTY) {
   readline.on('line', (input) => {
-    console.log(`Your name is: ${input}`);
+    process.stdout.write(`Your name is: ${input}\r`);
     console.log('This important software is now closing');
   });
 }
