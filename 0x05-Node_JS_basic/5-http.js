@@ -3,11 +3,7 @@
 const http = require('http');
 
 const { argv } = process;
-let db = '';
-if (argv.length > 2) {
-  // eslint-disable-next-line prefer-destructuring
-  db = argv[2];
-}
+const db = argv[2] || 'database.csv';
 
 const { readFile } = require('fs');
 const { promisify } = require('util');
@@ -39,7 +35,7 @@ async function countStudents(fileName, res) {
         }
       }
     });
-    res.write('This is the list of our students');
+    res.write('This is the list of our students\n');
 
     res.write(`Number of students: ${count}\n`);
     dept.forEach((v, k) => {
