@@ -82,7 +82,7 @@ describe('Test suite for login route', () => {
         if (err) {
           done(err);
         }
-        expect(res.body).to.be.equal('Welcome jojo');
+        chai.expect(res.body).to.be.equal('Welcome jojo');
         done();
       },
     );
