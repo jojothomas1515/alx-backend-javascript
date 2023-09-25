@@ -1,7 +1,7 @@
 const express = require('express');
 const http = require('http');
 const { readFile } = require('fs');
-const promisify = require('util');
+const { promisify } = require('util');
 
 const app = express();
 const { argv } = process;
