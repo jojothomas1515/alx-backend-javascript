@@ -48,6 +48,7 @@ async function countStudents(fileName, res) {
 
 app.get('/', (req, res) => res.send('Hello Holberton School!'));
 app.get('/students', async (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
   try {
     await countStudents(db, res);
   } catch (err) {
