@@ -9,6 +9,8 @@ const { readFile } = require('fs');
 const { promisify } = require('util');
 
 async function countStudents(fileName, res) {
+  res.write('This is the list of our students\n');
+
   try {
     const dept = new Map();
     let count = 0;
@@ -35,7 +37,6 @@ async function countStudents(fileName, res) {
         }
       }
     });
-    res.write('This is the list of our students\n');
 
     res.write(`Number of students: ${count}\n`);
     dept.forEach((v, k) => {
