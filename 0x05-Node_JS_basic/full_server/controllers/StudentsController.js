@@ -9,12 +9,12 @@ export default class StudentsController {
       fields.forEach((field) => {
         const students = resp[field];
         const len = students.length;
-        res.write(`Number of students in ${field}: ${len}. List: ${students.join(', ')}\n`);
+        return res.write(`Number of students in ${field}: ${len}. List: ${students.join(', ')}\n`);
       });
       return res.end();
     } catch (err) {
       res.write(err.message);
-      res.end();
+      return res.end();
     }
   }
 
@@ -38,7 +38,7 @@ export default class StudentsController {
       return res.end();
     } catch (err) {
       res.write(err.message);
-      res.end();
+      return res.end();
     }
   }
 }
