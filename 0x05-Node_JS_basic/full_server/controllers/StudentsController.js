@@ -9,6 +9,7 @@ export default class StudentsController {
       fields.forEach((field) => {
         const students = responsep[field];
         const len = students.length;
+
         return response.write(
           `Number of students in ${field}: ${len}. List: ${students.join(', ')}\n`
         );
