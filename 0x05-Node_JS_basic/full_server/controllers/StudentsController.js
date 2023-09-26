@@ -25,7 +25,7 @@ export default class StudentsController {
     const mj = ['CS', 'SWE'];
 
     if (!mj.includes(major)) {
-      return response.send('Major parameter must be CS or SWE').status(500);
+      return response.status(500).send('Major parameter must be CS or SWE');
     }
     try {
       const responsep = await readDatabase(process.argv[2]);
