@@ -1,9 +1,11 @@
-import { readFile } from 'fs/promises';
+import { readFile } from 'fs';
+import { promisify } from 'util';
 
 export default async function readDatabase(fileName) {
   try {
     const resObj = {};
-    const data = await readFile(fileName || '', { encoding: 'utf8' });
+    const rf = promisify(readFile);
+    const data = await rf(fileName || '', { encoding: 'utf8' });
     const students = data.trim().split('\n').slice(1);
     students.forEach((student) => {
       const sp = student.split(',');
