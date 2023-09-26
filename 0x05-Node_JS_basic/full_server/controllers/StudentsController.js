@@ -2,16 +2,17 @@ import readDatabase from '../utils';
 
 export default class StudentsController {
   static async getAllStudents(request, response) {
-    response.write('This is the list of our students\n');
     try {
       const responsep = await readDatabase(process.argv[2]);
       const fields = Object.getOwnPropertyNames(responsep).sort();
+      response.write('This is the list of our students\n');
+
       fields.forEach((field) => {
         const students = responsep[field];
         const len = students.length;
 
         return response.write(
-          `Number of students in ${field}: ${len}. List: ${students.join(', ')}\n`
+          `Number of students in ${field}: ${len}. List: ${students.join(', ')}\n`,
         );
       });
       return response.end();
