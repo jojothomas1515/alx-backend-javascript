@@ -31,8 +31,7 @@ export default class StudentsController {
       fields.forEach((field) => {
         if (field === major) {
           const students = resp[field];
-          const len = students.length;
-          res.write(`Number of students in ${field}: ${len}. List: ${students.join(', ')}`);
+          res.write(`List: ${students.join(', ')}`);
         }
       });
       return res.end();
