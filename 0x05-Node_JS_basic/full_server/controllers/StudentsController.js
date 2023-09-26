@@ -4,7 +4,7 @@ export default class StudentsController {
   static async getAllStudents(req, res) {
     res.write('This is the list of our students\n');
     try {
-      const resp = await readDatabase('database.csv');
+      const resp = await readDatabase(process.argv[2]);
       const fields = Object.getOwnPropertyNames(resp).sort();
       fields.forEach((field) => {
         const students = resp[field];
@@ -26,7 +26,7 @@ export default class StudentsController {
       return res.send('Major parameter must be CS or SWE').status(500);
     }
     try {
-      const resp = await readDatabase('database.csv');
+      const resp = await readDatabase(process.argv[2]);
       const fields = Object.getOwnPropertyNames(resp).sort();
       fields.forEach((field) => {
         if (field === major) {
