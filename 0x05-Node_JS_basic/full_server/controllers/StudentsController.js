@@ -1,43 +1,45 @@
 import readDatabase from '../utils';
 
 export default class StudentsController {
-  static async getAllStudents(req, res) {
-    res.write('This is the list of our students\n');
+  static async getAllStudents(request, response) {
+    response.write('This is the list of our students\n');
     try {
-      const resp = await readDatabase(process.argv[2]);
-      const fields = Object.getOwnPropertyNames(resp).sort();
+      const responsep = await readDatabase(process.argv[2]);
+      const fields = Object.getOwnPropertyNames(responsep).sort();
       fields.forEach((field) => {
-        const students = resp[field];
+        const students = responsep[field];
         const len = students.length;
-        return res.write(`Number of students in ${field}: ${len}. List: ${students.join(', ')}\n`);
+        return response.write(
+          `Number of students in ${field}: ${len}. List: ${students.join(', ')}\n`
+        );
       });
-      return res.end();
+      return response.end();
     } catch (err) {
-      res.write(err.message);
-      return res.end();
+      response.write(err.message);
+      return response.end();
     }
   }
 
-  static async getAllStudentsByMajor(req, res) {
-    const { major } = req.params;
+  static async getAllStudentsByMajor(request, response) {
+    const { major } = request.params;
     const mj = ['CS', 'SWE'];
 
     if (!mj.includes(major)) {
-      return res.send('Major parameter must be CS or SWE').status(500);
+      return response.send('Major parameter must be CS or SWE').status(500);
     }
     try {
-      const resp = await readDatabase(process.argv[2]);
-      const fields = Object.getOwnPropertyNames(resp).sort();
+      const responsep = await readDatabase(process.argv[2]);
+      const fields = Object.getOwnPropertyNames(responsep).sort();
       fields.forEach((field) => {
         if (field === major) {
-          const students = resp[field];
-          res.write(`List: ${students.join(', ')}`);
+          const students = responsep[field];
+          response.write(`List: ${students.join(', ')}`);
         }
       });
-      return res.end();
+      return response.end();
     } catch (err) {
-      res.write(err.message);
-      return res.end();
+      response.write(err.message);
+      return response.end();
     }
   }
 }
